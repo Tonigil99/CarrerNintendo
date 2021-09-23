@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Carrera Nintendo</title>
+    <style>
+        body{
+            font-family:monospace;
+        }
+        pre{
+            font-weight: bold;
+
+        }
+
+        td {
+            text-align: center;
+
+
+        }
+        tr{
+            height: 40px;
+            WIDTH: 400px;
+
+        }
+        .mario{
+            background-Image : url("mario.gif") ;
+            background-Size :cover ;
+        }
+        .luigi{
+            background-Image : url("luigi.gif") ;
+            background-Size :80% ;
+            background-repeat: no-repeat;
+
+        }
+        .yoshi{
+            background-Image : url("yoshi.gif") ;
+            background-Size :cover ;
+            background-repeat: no-repeat;
+
+        }
+        .pikachu{
+            background-Image : url("pikachu.gif") ;
+            background-Size :100% ;
+            background-repeat: no-repeat;
+
+        }
+        .bowser{
+            background-Image : url("bowser.gif") ;
+            background-Size :100% ;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+    <script type="text/javascript">
+//Creamos la variables globales de los jugadores con su posicion inicial
+        var contador = 1;
+        let jugador1 = 1;
+        let jugador2 = 41;
+        let jugador3 = 81;
+        let jugador4 = 121;
+        let jugador5 = 161;
+
+
+        $(document).ready(function () {
+            //Funcion para generar la tabla de 5 x 40
+            function fgenerar() {
+                tabla = "";
+                for (i = 1; i <= 5; i++) {
+                    tabla += "<tr>";
+                    for (j = 1; j <= 40; j++) {
+                        tabla += "<td id= " + contador + ">";
+                        contador++;
+                        tabla += "</td>";
+                    }
+                    tabla += "</tr>";
+                }
+
+                $("#tabla").html(tabla);
+                // Añadimos las clases de los jugadores con sus css
+                $(`#${jugador1}`).addClass("mario");
+                $(`#${jugador2}`).addClass("luigi");
+                $(`#${jugador3}`).addClass("yoshi");
+                $(`#${jugador4}`).addClass("pikachu");
+                $(`#${jugador5}`).addClass("bowser");
+
+
+            }
+            //funcion de borrar la tabla
+            fborrar = function () {
+                $("#tabla").empty();
+            }
+            //Funciones para crear una variable aletoria entre 1 y 6 y que nos permita avanzar en la atabla 
+            function dado1() {
+                var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador1}`).removeClass("mario");
+
+                jugador1 += aleatorio;
+                if (jugador1 >= 40) {
+                    alert("Ha ganado Mario");
+
+                } else {
+
+                    $(`#${jugador1}`).addClass("mario");
+
+                    
+                  
+
+                }
+            }
+            function dado2() {
+                var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador2}`).removeClass("luigi");
+
+                jugador2 += aleatorio;
+                if (jugador2 >= 80) {
+                    alert("Ha ganado luigi");
+
+                } else {
+
+                    $(`#${jugador2}`).addClass("luigi");   
+
+                }
+            }
+            function dado3() {
+                var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador3}`).removeClass("yoshi");
+
+                jugador3 += aleatorio;
+                if (jugador3 >= 120) {
+                    alert("Ha ganado yoshi");
+
+                } else {
+
+                    $(`#${jugador3}`).addClass("yoshi");   
+
+                }
+            }
+            function dado4() {
+                var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador4}`).removeClass("pikachu");
+
+                jugador4 += aleatorio;
+                if (jugador4 >= 160) {
+                    alert("Ha ganado pikachu");
+
+                } else {
+
+                    $(`#${jugador4}`).addClass("pikachu");   
+
+                }
+            }
+            function dado5() {
+                var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador5}`).removeClass("bowser");
+
+                jugador5 += aleatorio;
+                if (jugador5 >= 200) {
+                    alert("Ha ganado bowser");
+
+                } else {
+
+                    $(`#${jugador5}`).addClass("bowser");   
+
+                }
+            }
+         //Boton del restart para recargar la pagina
+            $("#btnrestart").click(()=>{location.reload()});
+            $("#btnGenerar").click(fgenerar);
+            $("#btnBorrar").click(fborrar);
+            $("#dado1").click(dado1);
+            $("#dado2").click(dado2);
+            $("#dado3").click(dado3);
+            $("#dado4").click(dado4);
+            $("#dado5").click(dado5);
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class=" text-center">
+                <h1>Carrera Nintendo</h1>
+               <pre>Player 1    Player 2    Player 3    PLayer 4    PLayer 5</pre>
+                <br>
+                <img src="mario.gif"width="50px" height="80px" >
+                <img src="luigi.gif" width="50px" height="80px" HSPACE="20">
+                <img src="yoshi.gif"width="50px" height="80px"HSPACE="20" >
+                <img src="pikachu.gif"width="50px" height="80px"HSPACE="20" >
+                <img src="bowser.gif"width="50px" height="80px"HSPACE="20" >
+
+
+                <br>
+                <button class="btn btn-outline-danger mt-4" id="dado1">Avanza J1</button>
+                <button class="btn btn-outline-success mt-4" id="dado2">Avanza J2</button>
+                <button class="btn btn-outline-secondary mt-4" id="dado3">Avanza J3</button>
+                <button class="btn btn-outline-warning mt-4"id="dado4">Avanza J4</button>
+                <button class="btn btn-outline-dark mt-4" id="dado5">Avanza J5</button>
+
+                <button class="btn btn-success mt-4" id="btnGenerar">Generar Pista</button>
+                <button class="btn btn-warning mt-4" id="btnrestart">RESTART</button>
+                <button class="btn btn-danger mt-4" id="btnBorrar">Borrar Pista</button>
+
+
+                <table class="table  table-success border = 25  mx-auto mt-5" style="width: 1100px ;background-color:#F0FFFF;border:10px ;"
+                    id="tabla"></table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
