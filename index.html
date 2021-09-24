@@ -95,7 +95,102 @@
             fborrar = function () {
                 $("#tabla").empty();
             }
-            //Funciones para crear una variable aletoria entre 1 y 6 y que nos permita avanzar en la atabla 
+            
+            
+     //Funciones para crear una variable aletoria entre 1 y 6 y que nos permita avanzar en la tabla con las teclas
+
+            $(document).keydown(function (tecla) {
+    if (tecla.keyCode == 65) {
+        var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador1}`).removeClass("mario");
+
+                jugador1 += aleatorio;
+                if (jugador1 >= 40) {
+                    alert("Ha ganado Mario");
+
+                } else {
+
+                    $(`#${jugador1}`).addClass("mario");
+
+                    
+                  
+
+                }
+            }
+    })
+    $(document).keydown(function (tecla) {
+    if (tecla.keyCode == 82) {
+        var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador2}`).removeClass("luigi");
+
+                jugador2 += aleatorio;
+                if (jugador2 >= 80) {
+                    alert("Ha ganado luigi");
+
+                } else {
+
+                    $(`#${jugador2}`).addClass("luigi");   
+
+                }
+            }
+    })
+    $(document).keydown(function (tecla) {
+        if (tecla.keyCode == 72) {
+        var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador3}`).removeClass("yoshi");
+
+                jugador3 += aleatorio;
+                if (jugador3 >= 120) {
+                    alert("Ha ganado yoshi");
+
+                } else {
+
+                    $(`#${jugador3}`).addClass("yoshi");   
+
+                }
+            }
+    })
+    $(document).keydown(function (tecla) {
+        if (tecla.keyCode == 77) {
+            var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador4}`).removeClass("pikachu");
+
+                jugador4 += aleatorio;
+                if (jugador4 >= 160) {
+                    alert("Ha ganado pikachu");
+
+                } else {
+
+                    $(`#${jugador4}`).addClass("pikachu");   
+
+                }
+            }
+    })
+    $(document).keydown(function (tecla) {
+        if (tecla.keyCode == 76) {
+
+        var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
+                
+                $(`#${jugador5}`).removeClass("bowser");
+
+                jugador5 += aleatorio;
+                if (jugador5 >= 200) {
+                    alert("Ha ganado bowser");
+
+                } else {
+
+                    $(`#${jugador5}`).addClass("bowser");   
+
+                }
+            }
+    })
+
+                //Funciones para crear una variable aletoria entre 1 y 6 y que nos permita avanzar en la tabla con los botones 
+
             function dado1() {
                 var aleatorio = Math.floor((Math.random() * (6 - 1 + 1)) + 1);
                 
@@ -193,7 +288,10 @@
         <div class="row justify-content-center">
             <div class=" text-center">
                 <h1>Carrera Nintendo</h1>
-               <pre>Player 1    Player 2    Player 3    PLayer 4    PLayer 5</pre>
+               <pre>Player 1    Player 2    Player 3    PLayer 4    PLayer 5
+               </pre>
+               <p>Tecla A        Tecla R         Tecla H      Tecla M         Tecla L    
+            </p>
                 <br>
                 <img src="mario.gif"width="50px" height="80px" >
                 <img src="luigi.gif" width="50px" height="80px" HSPACE="20">
