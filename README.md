@@ -1,2 +1,2 @@
 # CarreraNintendo
-Cuadrante de multiplicaciones dinámico. Procesamiento en entorno cliente con Javascript y JQuery. Con botón generador de tabla.
+Tabla con jquery con botones dinamicos ,y con movimientos de los personajes en la tabla con el teclado o botones 
